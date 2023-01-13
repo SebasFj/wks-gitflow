@@ -10,19 +10,15 @@ const columns = [
     key: 'name',
   },
   {
-    title: 'Model',
-    dataIndex: 'model',
-    key: 'model',
+    title: 'Birth',
+    dataIndex: 'birth_year',
+    key: 'birth_year',
   },
   {
-    title: 'Manufacturer',
-    dataIndex: 'manufacturer',
-    key: 'manufacturer',
-  },
-  {
-    title: 'Passengers',
-    dataIndex: 'passengers',
-    key: 'passengers',
+    title: 'Height',
+    dataIndex: 'height',
+    key: 'height',
+    render: (height: 0) => height/100
   },
   {
     title: 'Films count',
@@ -32,8 +28,8 @@ const columns = [
   },
 ];
 
-const Starships = () => {
-  const { data, error } = useSWR('/starships', swGet);
+const People = () => {
+  const { data, error } = useSWR('/people', swGet);
 
   if (error) {
     return <div className="px-2">Oh oh!</div>;
@@ -49,4 +45,4 @@ const Starships = () => {
   );
 };
 
-export default Starships;
+export default People;
